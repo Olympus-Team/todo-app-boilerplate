@@ -7,7 +7,7 @@ module.exports = {
         alias: {
           '@constants': './src/constants',
           '@controllers': './src/controllers',
-          '@db': './src/db',
+          '@db': './src/libs/db',
           '@helpers': './src/helpers',
           '@libs': './src/libs',
           '@middleware': './src/middleware',
