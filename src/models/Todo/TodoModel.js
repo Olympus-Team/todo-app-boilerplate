@@ -1,6 +1,7 @@
-import { DataTypes } from 'sequelize'
+import { Model, DataTypes } from 'sequelize'
 import sequelize from '@db'
-import Todo from './TodoDetail'
+
+class Todo extends Model {}
 
 Todo.init(
   {
