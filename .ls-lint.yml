@@ -1,0 +1,8 @@
+scripts:
+  .js: camelCase
+
+src/controllers:
+  .js: PascalCase
+
+src/{db,constants,helpers,libs,middleware,server}:
+  .js: camelCase

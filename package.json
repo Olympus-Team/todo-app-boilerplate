@@ -1,0 +1,70 @@
+{
+  "name": "simple-todo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Olympus-Team/todo-app-training.git",
+  "author": "Olympus Team <Đức, Quang, Nhật>",
+  "license": "MIT",
+  "scripts": {
+    "watch": "babel-watch -L src/index.js",
+    "start": "node src/index.js",
+    "db:migrate": "sequelize db:migrate",
+    "db:migrate:undo": "sequelize db:migrate:undo",
+    "db:undo:all": "sequelize db:migrate:undo:all",
+    "db:migrate:create": "sequelize migration:create --name",
+    "db:seed": "sequelize db:seed:all",
+    "db:setup": "yarn db:migrate && yarn db:seed",
+    "lint:eslint": "eslint --ext .js,.ts --ignore-path .gitignore . --fix",
+    "lint:prettier": "prettier --write --loglevel warn",
+    "test:ci": "node --expose-gc node_modules/jest/bin/jest --forceExit --bail --colors --logHeapUsage --maxWorkers=2 --ci --no-cache",
+    "clean:sources": "rimraf ./node_modules/.cache/hard-source"
+  },
+  "dependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-register": "^6.26.0",
+    "babel-watch": "^7.0.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "http-status-codes": "^1.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash.pick": "^4.4.0",
+    "pg": "^8.2.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.8",
+    "sequelize-cli": "^5.5.1"
+  },
+  "devDependencies": {
+    "@ls-lint/ls-lint": "^1.8.1",
+    "chalk": "^4.0.0",
+    "eslint": "^7.0.0",
+    "eslint-import-resolver-babel-module": "^5.1.2",
+    "eslint-plugin-import": "^2.20.2",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.2.2",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "yorkie": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=10.19.0"
+  },
+  "gitHooks": {
+    "pre-commit": "ls-lint && lint-staged",
+    "commit-msg": "node scripts/verifyCommitMsg.js"
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "yarn lint:eslint",
+      "yarn lint:prettier"
+    ],
+    "{!(package)*.json,*.code-snippets}": [
+      "yarn lint:prettier --parser json"
+    ]
+  }
+}
