@@ -5,6 +5,7 @@ import { config } from 'dotenv'
 import accessEnv from '@helpers/accessEnv'
 import setupRoutes from '@server/routes'
 import { setCorsHeader } from '@middleware/cors'
+import pagination from '@middleware/pagination'
 import errorHandler from '@middleware/errorHandler'
 
 config({ encoding: 'utf-8' })
@@ -23,7 +24,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(helmet())
 app.disable('x-powered-by')
-
+app.use(pagination)
 app.use(setCorsHeader)
 
 errorHandler(app)

@@ -1,10 +1,16 @@
 FROM node:12.16.1-alpine
 
-WORKDIR /opt/app/todo-backend
+ENV PROJECT_ROOTDIR /app/
 
-COPY . /opt/app/todo-backend
+WORKDIR $PROJECT_ROOTDIR
 
-# In Production Env
-RUN yarn install --production=true
+COPY package.json yarn.lock $PROJECT_ROOTDIR
 
-CMD yarn watch
+RUN yarn install
+
+COPY . $PROJECT_ROOTDIR
+
+EXPOSE 3000
+ENV HOST 0.0.0.0
+
+CMD ["yarn", "watch"]
