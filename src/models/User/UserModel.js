@@ -5,6 +5,9 @@ import { createJWT } from '@libs/jwt'
 import _ from '@libs/lodash'
 import { EXPIRED_TOKEN } from '@constants/handleMessages'
 
+/**
+ * @docs https://sequelize.org/v5/manual/models-definition.html
+ */
 class User extends Model {
   /// Class level method
   static validateUserToken(payload) {

@@ -5,6 +5,7 @@ import Service from '../Service'
 
 /**
  * Hooks
+ * @docs https://sequelize.org/v5/manual/hooks.html
  */
 
 User.addHook('beforeUpdate', (user, option) => {
@@ -15,6 +16,7 @@ User.addHook('beforeUpdate', (user, option) => {
 
 /**
  * Associations
+ * @docs https://sequelize.org/v5/manual/associations.html
  */
 User.hasMany(Todo, { foreignKey: 'userId' })
 User.belongsToMany(Service, { through: 'UserService', foreignKey: 'userId', otherKey: 'serviceId' })

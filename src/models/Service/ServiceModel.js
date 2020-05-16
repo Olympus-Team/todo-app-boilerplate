@@ -1,6 +1,9 @@
 import sequelize from '@db'
 import { DataTypes, Model } from 'sequelize'
 
+/**
+ * @docs https://sequelize.org/v5/manual/models-definition.html
+ */
 export class Service extends Model {}
 
 Service.init(
