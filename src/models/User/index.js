@@ -1,5 +1,6 @@
 import User from './UserModel'
 import { hashPassword } from '@libs/handlePassword'
+
 /**
  * Hooks
  */

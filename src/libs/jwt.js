@@ -1,5 +1,4 @@
 import { sign, verify } from 'jsonwebtoken'
-import 'dotenv/config'
 import accessEnv from '@helpers/accessEnv'
 
 const JWT_SECRET = accessEnv('JWT_SECRET')
