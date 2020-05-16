@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "watch": "babel-watch -L src/index.js",
+    "watch:debug": "babel-watch -d 9229 src/index.js ",
     "start": "node src/index.js",
     "db:migrate": "sequelize db:migrate",
     "db:migrate:undo": "sequelize db:migrate:undo",
