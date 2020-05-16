@@ -1,4 +1,5 @@
 import Todo from './TodoModel'
+import User from '../User'
 /**
  * Hooks
  */
@@ -6,5 +7,5 @@ import Todo from './TodoModel'
 /**
  * Associations
  */
-
+Todo.belongsTo(User, { foreignKey: 'userId' })
 export default Todo
