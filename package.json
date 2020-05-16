@@ -1,9 +1,17 @@
 {
-  "name": "simple-todo",
+  "name": "todo-app-boilerplate",
   "version": "1.0.0",
+  "description": "Basic template to training Team",
   "main": "index.js",
-  "repository": "https://github.com/Olympus-Team/todo-app-training.git",
-  "author": "Olympus Team <Đức, Quang, Nhật>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Olympus-Team/todo-app-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Olympus-Team/todo-app-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Olympus-Team/todo-app-boilerplate/tree/master/#readme",
+  "author": "Harry Tran<harrytran998>",
   "license": "MIT",
   "scripts": {
     "watch": "babel-watch -L src/index.js",
