@@ -19,7 +19,6 @@ services:
       - /app/node_modules # Anonymous volume
     networks:
       - webnet
-    command: yarn watch
 
   todo-db:
     image: postgres:11-alpine
@@ -34,7 +33,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
-      - 0.0.0.0:{DB_PORT}:5432
+      - 0.0.0.0:${DB_PORT}:5432
     networks:
       - webnet
 

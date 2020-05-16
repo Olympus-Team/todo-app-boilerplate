@@ -18,7 +18,7 @@ User.addHook('beforeUpdate', (user, option) => {
  * Associations
  * @docs https://sequelize.org/v5/manual/associations.html
  */
-User.hasMany(Todo, { foreignKey: 'userId' })
+User.hasMany(Todo, { foreignKey: 'todoId' })
 User.belongsToMany(Service, { through: 'UserService', foreignKey: 'userId', otherKey: 'serviceId' })
 
 export default User
