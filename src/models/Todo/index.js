@@ -9,6 +9,13 @@ import User from '../User'
  * Associations
  * @docs https://sequelize.org/v5/manual/associations.html
  */
-Todo.belongsTo(User, { foreignKey: 'todoId' })
+Todo.belongsTo(User, {
+  onDelete: 'CASCADE',
+  foreignKey: {
+    allowNull: false,
+    name: 'todoId',
+    field: 'todoId'
+  }
+})
 
 export default Todo
