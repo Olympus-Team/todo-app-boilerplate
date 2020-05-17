@@ -1,9 +1,11 @@
 import express from 'express'
+import { config } from 'dotenv'
 import setupExpressLib from '@libs/express'
 import setupRoutes from './routes'
 import accessEnv from '@helpers/accessEnv'
 
 import '@babel/polyfill'
+config({ encoding: 'utf-8' })
 
 async function init() {
   const PORT = accessEnv('PORT')
