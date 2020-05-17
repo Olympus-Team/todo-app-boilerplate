@@ -14,6 +14,9 @@
   "author": "Harry Tran<harrytran998>",
   "license": "MIT",
   "scripts": {
+    "build": "yarn build:clean && yarn build:server",
+    "build:clean": "rm -rf dist && mkdir dist",
+    "build:server": "babel src --extensions .js --out-dir ./dist",
     "watch": "babel-watch -L src/index.js",
     "watch:debug": "babel-watch -d 9229 src/index.js ",
     "start": "node src/index.js",
@@ -23,9 +26,12 @@
     "db:migrate:create": "sequelize migration:create --name",
     "db:seed": "sequelize db:seed:all",
     "db:setup": "yarn db:migrate && yarn db:seed",
+    "depscheck": "npx depcheck --specials=babel,bin,eslint,lint-staged --ignore-dirs=dist,coverage .",
     "lint:eslint": "eslint --ext .js,.ts --ignore-path .gitignore . --fix",
-    "lint:prettier": "prettier --write --loglevel warn",
+    "lint:prettier:write": "prettier --write --loglevel warn",
+    "lint:prettier:check": "prettier --check --loglevel warn",
     "test:ci": "node --expose-gc node_modules/jest/bin/jest --forceExit --bail --colors --logHeapUsage --maxWorkers=2 --ci --no-cache",
+    "test:coverage": "codecov",
     "clean:sources": "rimraf ./node_modules/.cache/hard-source"
   },
   "dependencies": {
@@ -37,18 +43,21 @@
     "babel-watch": "^7.0.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.22.0",
     "http-status-codes": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
     "lodash.pick": "^4.4.0",
+    "morgan": "^1.10.0",
     "pg": "^8.2.0",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.8",
     "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@ls-lint/ls-lint": "^1.8.1",
     "chalk": "^4.0.0",
     "eslint": "^7.0.0",
@@ -70,10 +79,10 @@
   "lint-staged": {
     "*.{ts,js}": [
       "yarn lint:eslint",
-      "yarn lint:prettier"
+      "yarn lint:prettier:write"
     ],
     "{!(package)*.json,*.code-snippets}": [
-      "yarn lint:prettier --parser json"
+      "yarn lint:prettier:write --parser json"
     ]
   }
 }
