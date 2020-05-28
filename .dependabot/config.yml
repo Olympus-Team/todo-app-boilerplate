@@ -12,7 +12,7 @@ update_configs:
       - 'dependencies'
       - 'dependabot'
     default_assignees:
-      - 'quangnv281098'
+      - 'harrytran998'
     commit_message:
       prefix: 'fix'
       prefix_development: 'chore'
