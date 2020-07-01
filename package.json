@@ -59,7 +59,7 @@
   "devDependencies": {
     "@babel/cli": "^7.10.4",
     "@ls-lint/ls-lint": "^1.8.1",
-    "chalk": "^4.0.0",
+    "chalk": "^4.1.0",
     "eslint": "^7.1.0",
     "eslint-import-resolver-babel-module": "^5.1.2",
     "eslint-plugin-import": "^2.20.2",
